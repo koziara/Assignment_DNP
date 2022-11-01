@@ -1,0 +1,86 @@
+﻿@page "/CreatePost"
+@using Domain.Models
+@using Domain.DTOs
+@using HttpsClients.ClientInterfaces
+@inject IPostService postService
+@inject NavigationManager navMgr
+@inject IUserService userService
+<h3>Create Post</h3>
+
+<div class="card">
+    <h3>Create Todo</h3>
+        <div class="form-group field">
+            <label>Title:</label>
+            <input type="text" @bind="postTitle"/>
+            <label>Body:</label>
+            <input type="text" @bind="postBody"/>
+        </div>
+        <div class="form-group field">
+            <label>Assignee:</label>
+            <select @bind="selectedUserId">
+                <option>Choose</option>
+                @foreach (User user in users)
+                {
+                    <option value="@user.Id">@user.UserName</option>
+                }
+            </select>
+        </div>
+        <div class="button-row">
+            @if (!string.IsNullOrEmpty(msg))
+            {
+                <label style="color: red">@msg</label>
+            }
+            <button @onclick="Create" class="acceptbtn">Create</button>
+        </div>
+</div>
+
+@code {
+    private string postTitle = "";
+    private string postBody = "";
+    
+    private int? selectedUserId;
+    private IEnumerable<User>? users;
+
+    private string msg = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        msg = "";
+        try
+        {
+            users = await userService.GetUsersAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+    
+    private async Task Create()
+    {
+        msg = "";
+        
+        if (string.IsNullOrEmpty(postTitle))
+        {
+            msg = "Title cannot be empty!";
+            return;
+        }
+        if (string.IsNullOrEmpty(postBody))
+        {
+            msg = "Body cannot be empty!";
+            return;
+        }
+        try
+        {
+            PostCreationDto dto = new((int)selectedUserId, postTitle, postBody);
+            await postService.CreateAsync(dto);
+            navMgr.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+}
