@@ -1,8 +1,7 @@
 ﻿@page "/Login"
-@using HttpsClients.ClientInterfaces
+@using BlazorWasm.Services
 @inject IAuthService authService
 @inject NavigationManager navMgr
-
 <h3>Login</h3>
 
 <AuthorizeView>
@@ -56,4 +55,5 @@
             errorLabel = $"Error: {e.Message}";
         }
     }
+
 }

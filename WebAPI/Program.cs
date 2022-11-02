@@ -5,9 +5,9 @@ using Application.LogicInterfaces;
 using Domain.Auth;
 using FileData;
 using FileData.DAOs;
-using HttpsClients.ClientInterfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using WebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +40,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 AuthorizationPolicies.AddPolicies(builder.Services);
-
 var app = builder.Build();
 app.UseAuthentication();
 

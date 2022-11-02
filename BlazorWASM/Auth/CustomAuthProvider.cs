@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
-using HttpsClients.ClientInterfaces;
+using BlazorWasm.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 
-namespace BlazorWASM;
+namespace BlazorWasm.Auth;
 
 public class CustomAuthProvider : AuthenticationStateProvider
 {
@@ -11,14 +11,7 @@ public class CustomAuthProvider : AuthenticationStateProvider
     public CustomAuthProvider(IAuthService authService)
     {
         this.authService = authService;
-        authService.OnAuthStateChanged += AuthStateCanged;
-    }
-
-    private void AuthStateCanged(ClaimsPrincipal principal)
-    {
-        NotifyAuthenticationStateChanged(
-            Task.FromResult(
-                new AuthenticationState(principal)));
+        authService.OnAuthStateChanged += AuthStateChanged;
     }
 
     public override async Task<AuthenticationState> GetAuthenticationStateAsync()
@@ -26,6 +19,12 @@ public class CustomAuthProvider : AuthenticationStateProvider
         ClaimsPrincipal principal = await authService.GetAuthAsync();
         return new AuthenticationState(principal);
     }
-    
-    
+
+    private void AuthStateChanged(ClaimsPrincipal principal)
+    {
+        NotifyAuthenticationStateChanged(
+            Task.FromResult(
+                new AuthenticationState(principal)
+                ));
+    }
 }

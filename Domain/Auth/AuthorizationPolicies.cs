@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Domain.Auth;
 
-public class AuthorizationPolicies
+public static class AuthorizationPolicies
 {
     public static void AddPolicies(IServiceCollection services)
     {
@@ -12,9 +12,9 @@ public class AuthorizationPolicies
             options.AddPolicy("MustBeAbove18", a =>
                 a.RequireAuthenticatedUser().RequireAssertion(context =>
                 {
-                    Claim? ageClaim = context.User.FindFirst(claim => claim.Type.Equals("Age"));
-                    if (ageClaim == null) return false;
-                    return int.Parse(ageClaim.Value) >= 18;
+                    Claim? levelClaim = context.User.FindFirst(claim => claim.Type.Equals("Age"));
+                    if (levelClaim == null) return false;
+                    return int.Parse(levelClaim.Value) >= 18;
                 }));
         });
     }
