@@ -27,6 +27,11 @@
             <div class="field">
                 <button class="loginbtn" @onclick="LoginAsync">Log in</button>
             </div>
+            <div class="field">
+                <a href="CreateUser">
+                    <button>Register</button>
+                </a>
+            </div>
         </div>
     </NotAuthorized>
     <Authorized>
@@ -47,7 +52,7 @@
         try
         {
             await authService.LoginAsync(userName, password);
-            navMgr.NavigateTo("/");
+            navMgr.NavigateTo("/login");
         }
         catch (Exception e)
         {

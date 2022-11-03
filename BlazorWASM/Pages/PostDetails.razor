@@ -1,0 +1,33 @@
+﻿@page "/posts/{id}"
+@using Domain.Models
+@using HttpsClients.ClientInterfaces
+@using System.Security.Claims
+@inject IPostService postService
+<h3>PostDetails</h3>
+
+
+<div class="post-card">
+    <div>@post.Owner.UserName</div>
+    <div>@post.Title</div>
+    <div>@post.Body</div>
+    <div @bind="id">@post.id</div>
+    <p>siema</p>
+</div>
+
+@code {
+    private Post? post;
+    private int id;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            post = await postService.GetByIdAsync(id);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+}

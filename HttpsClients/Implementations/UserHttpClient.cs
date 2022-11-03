@@ -52,4 +52,25 @@ public class UserHttpClient : IUserService
         })!;
         return users;
     }
+    
+    public async Task<User> GetUserByNameAsync(string? usernameContains = null)
+    {
+        string uri = "/user";
+        if (!string.IsNullOrEmpty(usernameContains))
+        {
+            uri += $"?username={usernameContains}";
+        }
+        HttpResponseMessage response = await client.GetAsync(uri);
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        User user = JsonSerializer.Deserialize<User>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return user;
+    }
 }

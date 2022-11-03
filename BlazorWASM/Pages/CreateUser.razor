@@ -10,6 +10,8 @@
     <div class="form-group field">
         <label>User name:</label>
         <input type="text" @bind="username" @bind:event="oninput"/>
+        <label>Password:</label>
+        <input type="text" @bind="password" @bind:event="oninput"/>
         @if (!string.IsNullOrEmpty(resultMsg))
         {
             <label style="color: @color">@resultMsg</label>
@@ -32,9 +34,10 @@
 
         try
         {
-            await userService.Create(new UserCreationDto(username));
+            await userService.Create(new UserCreationDto(username, password));
             username = "";
-            resultMsg = "User successfully created";
+            password = "";
+            resultMsg = "Welcome in fake reddit";
             color = "green";
         }
         catch (Exception e)

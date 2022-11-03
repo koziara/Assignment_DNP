@@ -30,7 +30,6 @@ public class PostHttpClient : IPostService
             PropertyNameCaseInsensitive = true
         })!;
     }
-
     public async Task<ICollection<Post>> GetAsync()
     {
         HttpResponseMessage response = await client.GetAsync("/posts");
@@ -45,5 +44,21 @@ public class PostHttpClient : IPostService
             PropertyNameCaseInsensitive = true
         })!;
         return posts;
+    }
+
+    public async Task<Post> GetByIdAsync(int id)
+    {
+        HttpResponseMessage response = await client.GetAsync("/posts");
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        Post? post = JsonSerializer.Deserialize<Post>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return post;
     }
 }

@@ -4,22 +4,25 @@
       "Id": 1,
       "UserName": "Natalia",
       "Password": "Natalia",
-      "Posts": null,
       "Age": 18
     },
     {
       "Id": 2,
       "UserName": "Jakub",
       "Password": "Natalia",
-      "Posts": null,
       "Age": 18
     },
     {
       "Id": 3,
       "UserName": "Mati",
       "Password": "Natalia",
-      "Posts": null,
       "Age": 18
+    },
+    {
+      "Id": 4,
+      "UserName": "Marianna",
+      "Password": null,
+      "Age": 0
     }
   ],
   "Posts": [
@@ -28,7 +31,8 @@
       "Owner": {
         "Id": 1,
         "UserName": "Natalia",
-        "Posts": null
+        "Password": null,
+        "Age": 0
       },
       "Title": "New staff",
       "Body": "I am selling new clothes and shoes. Have a look!"
@@ -38,7 +42,8 @@
       "Owner": {
         "Id": 2,
         "UserName": "Jakub",
-        "Posts": null
+        "Password": null,
+        "Age": 0
       },
       "Title": "Found Id",
       "Body": "Hello, i found id on beach. Contact me 123@gmail.com"
@@ -48,10 +53,33 @@
       "Owner": {
         "Id": 1,
         "UserName": "Natalia",
-        "Posts": null
+        "Password": null,
+        "Age": 0
       },
       "Title": "I have cat",
       "Body": "Cats are ok"
+    },
+    {
+      "id": 4,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Natalia",
+        "Password": "Natalia",
+        "Age": 18
+      },
+      "Title": "Hello",
+      "Body": "Hello World"
+    },
+    {
+      "id": 5,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Natalia",
+        "Password": "Natalia",
+        "Age": 18
+      },
+      "Title": "Im tired",
+      "Body": "i want it to be done"
     }
   ]
 }

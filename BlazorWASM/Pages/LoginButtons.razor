@@ -3,7 +3,6 @@
 @inject NavigationManager navMgr
 @inject IAuthService authService
 
-
 <AuthorizeView>
     <Authorized>
         <img class="icon" src="img/Logout.png" @onclick="LogOut"/>
@@ -12,7 +11,6 @@
         <img class="icon" src="img/Login.png" @onclick="Login"/>
     </NotAuthorized>
 </AuthorizeView>
-
 
 @code {
 

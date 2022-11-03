@@ -29,10 +29,6 @@ public class AuthLogic : IAuthLogic
 
         return existingUser;
     }
-    public Task<User> GetUser(string username, string password)
-    {
-        throw new NotImplementedException();
-    }
 
     public Task RegisterUser(User user)
     {

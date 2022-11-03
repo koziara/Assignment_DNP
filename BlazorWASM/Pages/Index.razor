@@ -1,9 +1,55 @@
 ﻿@page "/"
+@using Domain.Models
+@using HttpsClients.ClientInterfaces
+@inject IPostService postService
+@inject NavigationManager navMgr
 
-<PageTitle>Index</PageTitle>
+@if (posts == null)
+{
+    <p>Loading..</p>
+}
+else if (!posts.Any())
+{
+    <p>No posts to display</p>
+}
+else
+{
+    @foreach (var post in posts)
+    {
+        <div class="post-card">
+            <div><img class="icon" src="img/account.png"/>@post.Owner.UserName</div>
+            <a href="PostDetails"><div><h3>@post.Title</h3></div></a>
+            <div @bind="id">@post.id</div>
+            <!--<div>@post.Body</div>-->
+        </div>
+        
+    }
+}
+@if (!string.IsNullOrEmpty(msg))
+{
+    <label style="color: red">@msg</label>
+}
 
-<h1>Hello, world!</h1>
+@code {
+    private IEnumerable<Post>? posts;
+    private string msg;
+    private int id; 
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            posts = await postService.GetAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?"/>
+    private async Task OnClick(int id)
+    {   
+        navMgr.NavigateTo($"/posts/{id}");
+    }
+}
