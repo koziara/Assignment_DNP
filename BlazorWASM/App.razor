@@ -5,9 +5,10 @@
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                         <NotAuthorized>
-                            <p>You'll have to log in!</p>
+                            <h2>To perform this operation you have to log in. </h2>
+                            <h3>If you do not have account, click th button below and register.</h3>
                             <a href="CreateUser">
-                                <button>Register</button>
+                                <button class="register-button">Register</button>
                             </a>
                         </NotAuthorized>
                     </AuthorizeRouteView>

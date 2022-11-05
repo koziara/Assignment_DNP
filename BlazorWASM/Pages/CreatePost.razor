@@ -19,15 +19,8 @@
         <label>Body:</label>
         <input type="text" @bind="postBody"/>
     </div>
-    <AuthorizeView>
-               <div class="form-group field">
-                    <label>Assignee:</label>
-                    <label>Asignee: @context.User.Identity.Name</label>
-                    <output ></output>
-                </div>
-    </AuthorizeView>
- 
-        <div class="button-row">
+
+    <div class="button-row">
             @if (!string.IsNullOrEmpty(msg))
             {
                 <label style="color: red">@msg</label>

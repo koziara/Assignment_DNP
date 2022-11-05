@@ -3,26 +3,47 @@
     {
       "Id": 1,
       "UserName": "Natalia",
-      "Password": "Natalia",
-      "Age": 18
+      "Password": "Natalia"
     },
     {
       "Id": 2,
       "UserName": "Jakub",
-      "Password": "Natalia",
-      "Age": 18
+      "Password": "Natalia"
     },
     {
       "Id": 3,
       "UserName": "Mati",
-      "Password": "Natalia",
-      "Age": 18
+      "Password": "Natalia"
     },
     {
       "Id": 4,
       "UserName": "Marianna",
-      "Password": null,
-      "Age": 0
+      "Password": null
+    },
+    {
+      "Id": 5,
+      "UserName": "Tomek",
+      "Password": null
+    },
+    {
+      "Id": 6,
+      "UserName": "roman",
+      "Password": null
+    },
+    {
+      "Id": 7,
+      "UserName": "123",
+      "Password": null
+    },
+    {
+      "Id": 8,
+      "UserName": "345",
+      "Password": "345"
+    },
+    {
+      "Id": 9,
+      "UserName": "222",
+      "Password": "222"
     }
   ],
   "Posts": [
@@ -31,8 +52,7 @@
       "Owner": {
         "Id": 1,
         "UserName": "Natalia",
-        "Password": null,
-        "Age": 0
+        "Password": null
       },
       "Title": "New staff",
       "Body": "I am selling new clothes and shoes. Have a look!"
@@ -42,8 +62,7 @@
       "Owner": {
         "Id": 2,
         "UserName": "Jakub",
-        "Password": null,
-        "Age": 0
+        "Password": null
       },
       "Title": "Found Id",
       "Body": "Hello, i found id on beach. Contact me 123@gmail.com"
@@ -53,8 +72,7 @@
       "Owner": {
         "Id": 1,
         "UserName": "Natalia",
-        "Password": null,
-        "Age": 0
+        "Password": null
       },
       "Title": "I have cat",
       "Body": "Cats are ok"
@@ -64,8 +82,7 @@
       "Owner": {
         "Id": 1,
         "UserName": "Natalia",
-        "Password": "Natalia",
-        "Age": 18
+        "Password": "Natalia"
       },
       "Title": "Hello",
       "Body": "Hello World"
@@ -75,11 +92,20 @@
       "Owner": {
         "Id": 1,
         "UserName": "Natalia",
-        "Password": "Natalia",
-        "Age": 18
+        "Password": "Natalia"
       },
       "Title": "Im tired",
       "Body": "i want it to be done"
+    },
+    {
+      "id": 6,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Natalia",
+        "Password": "Natalia"
+      },
+      "Title": "Hello people",
+      "Body": "hello "
     }
   ]
 }

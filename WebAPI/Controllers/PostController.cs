@@ -47,7 +47,7 @@ public class PostController : ControllerBase
         }
     }
 
-    [HttpDelete("{id:int}")]
+    [HttpDelete("/{id:int}")]
     public async Task<ActionResult> Delete([FromRoute] int id)
     {
         try
@@ -68,7 +68,7 @@ public class PostController : ControllerBase
         try
         {
             Post? post = await postLogic.GetByIdAsync(id);
-            return Created($"/posts/{id}", post);
+            return Ok(post);
         }
         catch (Exception e)
         {

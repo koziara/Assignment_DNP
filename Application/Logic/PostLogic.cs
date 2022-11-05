@@ -20,7 +20,7 @@ public class PostLogic : IPostLogic
     {
         try
         {
-        User? user = await userDao.GetByIdAsync(dto.OwnerId);
+            User? user = await userDao.GetByIdAsync(dto.OwnerId);
         if (user == null)
         {
             throw new Exception($"User with id {dto.OwnerId} was not found.");
@@ -71,6 +71,6 @@ ValidateTodo(dto);
     private void ValidateTodo(PostCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Title)) throw new Exception("Title cannot be empty.");
-        // other validation stuff
+
     }
 }

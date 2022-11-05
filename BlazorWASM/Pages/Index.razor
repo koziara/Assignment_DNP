@@ -16,12 +16,16 @@ else
 {
     @foreach (var post in posts)
     {
+        
         <div class="post-card">
-            <div><img class="icon" src="img/account.png"/>@post.Owner.UserName</div>
-            <a href="PostDetails"><div><h3>@post.Title</h3></div></a>
-            <div @bind="id">@post.id</div>
-            <!--<div>@post.Body</div>-->
+            <a href="PostDetails/@post.id">
+                <div><img class="icon" src="img/account.png" alt="account"/>@post.Owner.UserName</div>
+                <div class="post-title">
+                    <h2>@post.Title</h2></div>
+                <!--<div>@post.Body</div>-->
+            </a>
         </div>
+        
         
     }
 }
@@ -33,13 +37,15 @@ else
 @code {
     private IEnumerable<Post>? posts;
     private string msg;
-    private int id; 
+    [Parameter] public string? Id { get; set; } 
     
     protected override async Task OnInitializedAsync()
     {
         try
         {
             posts = await postService.GetAsync();
+
+            Id = "1";
         }
         catch (Exception e)
         {

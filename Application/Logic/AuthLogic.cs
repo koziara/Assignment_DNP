@@ -43,6 +43,7 @@ public class AuthLogic : IAuthLogic
         }
 
         userDao.CreateAsync(user);
+        
 
         return Task.CompletedTask;
     }

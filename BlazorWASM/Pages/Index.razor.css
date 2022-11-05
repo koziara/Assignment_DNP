@@ -4,4 +4,15 @@
     margin: 25px;
     padding: 15px;
     border-radius: 10px;
+    height: 10%;
+    width: 50%;
+    font-size: 13px;
+}
+div{
+    margin: 10px;
+    color: black;
+}
+a:link
+{
+    text-decoration: none;
 }

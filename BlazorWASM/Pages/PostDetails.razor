@@ -1,28 +1,28 @@
-﻿@page "/posts/{id}"
+﻿@page "/PostDetails/{Id:int}"
 @using Domain.Models
 @using HttpsClients.ClientInterfaces
-@using System.Security.Claims
 @inject IPostService postService
 <h3>PostDetails</h3>
 
 
 <div class="post-card">
-    <div>@post.Owner.UserName</div>
-    <div>@post.Title</div>
-    <div>@post.Body</div>
-    <div @bind="id">@post.id</div>
-    <p>siema</p>
+    <div><img class="icon" src="img/account.png" alt="account"/>@post.Owner.UserName</div>
+    <div><h3>@post.Title</h3></div>
+    <div><h4>@post.Body</h4></div>
+    
 </div>
 
 @code {
     private Post? post;
-    private int id;
-    
+
+    [Parameter]
+    public int Id { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            post = await postService.GetByIdAsync(id);
+            post = await postService.GetByIdAsync(Id);
         }
         catch (Exception e)
         {
