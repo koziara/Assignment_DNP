@@ -70,11 +70,16 @@ a, .btn-link {
     margin: 10px;
 }
 
+a{
+    width: fit-content;
+}
 .register-button
 {
+
     background-color: lightblue;
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
+
 }

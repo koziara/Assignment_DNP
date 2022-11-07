@@ -17,16 +17,6 @@ public class TestController : ControllerBase
         return Ok("This was accepted as authorized");
     }
     
-    [HttpGet("allowanon"), AllowAnonymous]
-    public ActionResult GetAsAnon()
-    {
-        return Ok("This was accepted as anonymous");
-    }
-    
-    [HttpGet("above18"), Authorize("MustBeAbove18")]
-    public ActionResult GetAsAdult()
-    {
-        return Ok("This was accepted as adult domain");
-    }
+
 
 }

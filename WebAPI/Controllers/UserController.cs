@@ -33,12 +33,12 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<User>>> GetAsync([FromQuery] string? username)
+    public async Task<ActionResult<IEnumerable<User>>> GetAsync()
     {
         try
         {
-            SearchUserParametersDto parameters = new(username);
-            IEnumerable<User> users = await userLogic.GetAsync(parameters);
+            
+            IEnumerable<User> users = await userLogic.GetAsync();
             return Ok(users);
         }
         catch (Exception e)

@@ -2,14 +2,25 @@
 @using Domain.Models
 @using HttpsClients.ClientInterfaces
 @inject IPostService postService
-<h3>PostDetails</h3>
-
-
+@inject NavigationManager navMgr
 <div class="post-card">
-    <div><img class="icon" src="img/account.png" alt="account"/>@post.Owner.UserName</div>
-    <div><h3>@post.Title</h3></div>
-    <div><h4>@post.Body</h4></div>
-    
+        <div>
+        <div><img class="icon delete-button" src="img/account.png" alt="account"/>@post.Owner.UserName</div>
+        <div>
+            <h3>@post.Title</h3>
+        </div>
+        <div><h4>@post.Body</h4></div>
+    </div>
+    <div>
+        <AuthorizeView>
+            <Authorized>
+                @if (post.Owner.UserName == @context.User.Identity.Name)
+                {
+                    <div><img class="icon delete-button" src="img/bin.png" alt="bin" @onclick="Delete"/></div>
+                }
+            </Authorized>
+        </AuthorizeView>
+    </div>
 </div>
 
 @code {
@@ -23,6 +34,20 @@
         try
         {
             post = await postService.GetByIdAsync(Id);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private async Task Delete()
+    {
+        try
+        {
+            await postService.DeletePost(Id);
+            navMgr.NavigateTo("/");
         }
         catch (Exception e)
         {

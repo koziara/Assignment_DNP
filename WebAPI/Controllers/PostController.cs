@@ -47,7 +47,7 @@ public class PostController : ControllerBase
         }
     }
 
-    [HttpDelete("/{id:int}")]
+    [HttpDelete("{id:int}")]
     public async Task<ActionResult> Delete([FromRoute] int id)
     {
         try

@@ -48,36 +48,6 @@
   ],
   "Posts": [
     {
-      "id": 1,
-      "Owner": {
-        "Id": 1,
-        "UserName": "Natalia",
-        "Password": null
-      },
-      "Title": "New staff",
-      "Body": "I am selling new clothes and shoes. Have a look!"
-    },
-    {
-      "id": 2,
-      "Owner": {
-        "Id": 2,
-        "UserName": "Jakub",
-        "Password": null
-      },
-      "Title": "Found Id",
-      "Body": "Hello, i found id on beach. Contact me 123@gmail.com"
-    },
-    {
-      "id": 3,
-      "Owner": {
-        "Id": 1,
-        "UserName": "Natalia",
-        "Password": null
-      },
-      "Title": "I have cat",
-      "Body": "Cats are ok"
-    },
-    {
       "id": 4,
       "Owner": {
         "Id": 1,

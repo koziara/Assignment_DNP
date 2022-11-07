@@ -4,13 +4,20 @@
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
-                        <NotAuthorized>
-                            <h2>To perform this operation you have to log in. </h2>
-                            <h3>If you do not have account, click th button below and register.</h3>
-                            <a href="CreateUser">
-                                <button class="register-button">Register</button>
-                            </a>
-                        </NotAuthorized>
+            <NotAuthorized>
+                <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 justify-content-center align-content-center text-center">
+                        <h2 class="my-4">To perform this operation you have to log in. </h2>
+                        <h3 class="my-4">If you do not have account, click button below and register.</h3>
+
+                        <a href="CreateUser" class="my-4">
+                            <button class="register-button">Register</button>
+                        </a>
+                        </div></div>
+                </div>
+                
+            </NotAuthorized>
                     </AuthorizeRouteView>
         <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
     </Found>
