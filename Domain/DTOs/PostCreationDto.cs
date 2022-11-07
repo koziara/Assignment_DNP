@@ -2,13 +2,13 @@
 
 public class PostCreationDto
 {
-    public int OwnerId { get; }
+    public string OwnerName { get; }
     public string Title { get; }
     public string Body { get; }
-
-    public PostCreationDto(int ownerId, string title, string body)
+    
+    public PostCreationDto(string ownerName, string title, string body)
     {
-        OwnerId = ownerId;
+        OwnerName = ownerName;
         Title = title;
         Body = body;
     }

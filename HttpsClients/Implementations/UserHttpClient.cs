@@ -53,10 +53,6 @@ public class UserHttpClient : IUserService
     public async Task<User> GetUserByNameAsync(string? usernameContains = null)
     {
         string uri = "/user";
-        if (!string.IsNullOrEmpty(usernameContains))
-        {
-            uri += $"?username={usernameContains}";
-        }
         HttpResponseMessage response = await client.GetAsync(uri);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)

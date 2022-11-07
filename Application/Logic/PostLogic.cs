@@ -20,10 +20,10 @@ public class PostLogic : IPostLogic
     {
         try
         {
-            User? user = await userDao.GetByIdAsync(dto.OwnerId);
+            User? user = await userDao.GetByUsernameAsync(dto.OwnerName);
         if (user == null)
         {
-            throw new Exception($"User with id {dto.OwnerId} was not found.");
+            throw new Exception($"User with id {dto.OwnerName} was not found.");
         }
 ValidateTodo(dto);
         Post post = new Post(user, dto.Title, dto.Body);

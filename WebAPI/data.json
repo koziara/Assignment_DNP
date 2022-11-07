@@ -8,42 +8,17 @@
     {
       "Id": 2,
       "UserName": "Jakub",
-      "Password": "Natalia"
+      "Password": "Jakub"
     },
     {
       "Id": 3,
       "UserName": "Mati",
-      "Password": "Natalia"
+      "Password": "Mati"
     },
     {
       "Id": 4,
-      "UserName": "Marianna",
-      "Password": null
-    },
-    {
-      "Id": 5,
-      "UserName": "Tomek",
-      "Password": null
-    },
-    {
-      "Id": 6,
-      "UserName": "roman",
-      "Password": null
-    },
-    {
-      "Id": 7,
-      "UserName": "123",
-      "Password": null
-    },
-    {
-      "Id": 8,
-      "UserName": "345",
-      "Password": "345"
-    },
-    {
-      "Id": 9,
-      "UserName": "222",
-      "Password": "222"
+      "UserName": "Lena",
+      "Password": "Lena"
     }
   ],
   "Posts": [
@@ -54,8 +29,8 @@
         "UserName": "Natalia",
         "Password": "Natalia"
       },
-      "Title": "Hello",
-      "Body": "Hello World"
+      "Title": "Party",
+      "Body": "In campus will be held huge Halloween party.\nDate: 30.02.2023 "
     },
     {
       "id": 5,
@@ -64,18 +39,28 @@
         "UserName": "Natalia",
         "Password": "Natalia"
       },
-      "Title": "Im tired",
-      "Body": "i want it to be done"
+      "Title": "Play with us",
+      "Body": "We are going to play table tennis in canteen."
     },
     {
       "id": 6,
       "Owner": {
-        "Id": 1,
-        "UserName": "Natalia",
-        "Password": "Natalia"
+        "Id": 2,
+        "UserName": "Jakub",
+        "Password": "Jakub"
       },
-      "Title": "Hello people",
-      "Body": "hello "
+      "Title": "Join out club",
+      "Body": "Club RAW is designing webpages. Join us! Text me: 123@gmail.com"
+    },
+    {
+      "id": 7,
+      "Owner": {
+        "Id": 2,
+        "UserName": "Jakub",
+        "Password": "Jakub"
+      },
+      "Title": "New laptop",
+      "Body": "I am selling new laptop."
     }
   ]
 }
